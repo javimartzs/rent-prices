@@ -3,8 +3,7 @@ import time
 
 if __name__ == '__main__':
 
-    with open('input/cities.txt', 'r', encoding='utf-8') as file:
-        cities = [line.strip() for line in file]
+    cities = ['madrid', 'barcelona', 'valencia', 'sevilla', 'zaragoza', 'malaga']
 
     success = False 
 
@@ -20,7 +19,8 @@ if __name__ == '__main__':
 
             # Start Scraping
             home_url = 'https://www.idealista.com/alquiler-habitacion'
-            scraper = Scraper(browser_obj, barrios, home_url)
+            home = 'rooms'
+            scraper = Scraper(browser_obj, barrios, home_url, home)
             scraper.scrape()
 
             success = True

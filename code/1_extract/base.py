@@ -72,10 +72,11 @@ class BarrioLoader:
         return barrios
 
 class Scraper:
-    def __init__(self, browser, barrios, home_url):
+    def __init__(self, browser, barrios, home_url, home):
         self.browser = browser
         self.barrios = barrios
         self.home_url = home_url
+        self.home = home
 
     def scrape(self):
         # Iteramos sobre las ciudades y los barrios de cada ciudad
@@ -145,7 +146,7 @@ class Scraper:
                     # Convertimos la lista a un DF y lo guardamos en un CSV para cada ciudad
                     df = pd.DataFrame(data)
                     date_suffix = time.strftime('%Y%m%d')
-                    df.to_csv(f'output/rent/{city}_{date_suffix}.csv', index=False)
+                    df.to_csv(f'output/{self.home}/{city}_{date_suffix}.csv', index=False)
 
                     # Comprobamos si hay una siguiente página
                     current_page = self.browser.get_browser().current_url
