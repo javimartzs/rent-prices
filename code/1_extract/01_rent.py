@@ -18,7 +18,6 @@ if __name__ == '__main__':
             loader = BarrioLoader(cities)
             barrios = loader.import_barrios()
 
-
             # Start Scraping
             home_url = 'https://www.idealista.com/alquiler-viviendas'
             scraper = Scraper(browser_obj, barrios, home_url)
