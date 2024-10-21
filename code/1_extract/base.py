@@ -35,6 +35,11 @@ class Browser:
 
         for cookie in cookies:
             self.browser.add_cookie(cookie)
+        
+        if os.path.exists('cookies.pkl'):
+            os.remove('cookies.pkl')
+        else:
+            print("No se encontró el archivo cookies.pkl")
     
     def random_scroll(self):
         scroll_height = random.randint(100, 300)
@@ -57,10 +62,10 @@ class BarrioLoader:
         self.cities = cities
 
     def import_barrios(self):
-        barrios = []
+        barrios = {}
         for city in self.cities:
             try:
-                with open(f'barrios/barrios_{city}.txt', 'r') as file:
+                with open(f'input/barrios/barrios_{city}.txt', 'r') as file:
                     barrios[city] = file.read().splitlines()
             except FileNotFoundError:
                 print(f"No se encontró el archivo barrios_{city}.txt")
@@ -79,16 +84,15 @@ class Scraper:
             for barrio in barrios_list:
 
                 # Navegamos a la URL inicial del barrio 
-                self.browser.get(f"{self.home_url}/{city}/{barrio}/")
+                self.browser.get_browser().get(f"{self.home_url}/{city}/{barrio}/")
 
                 # Loop para navegar por todas las páginas del barrio
                 while True:
                     self.browser.random_scroll()
                     self.browser.random_sleep()
 
-
                     # Extraemos el contenido HTML
-                    html = self.browser.page_source
+                    html = self.browser.get_browser().page_source
                     soup = bs(html, 'html.parser')
 
                     # Encuentra los articulos de la página

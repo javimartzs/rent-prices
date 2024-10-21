@@ -3,7 +3,7 @@ import time
 
 if __name__ == '__main__':
 
-    with open('cities.txt', 'r', encoding='utf-8') as file:
+    with open('input/cities.txt', 'r', encoding='utf-8') as file:
         cities = [line.strip() for line in file]
 
     success = False
@@ -27,7 +27,7 @@ if __name__ == '__main__':
             success = True
         
         except Exception as e:
-            print(f"Error durante la ejecución del script")
+            print(f"Error durante la ejecución del script: {e}")
             print(f"Esperando 10 minutos antes de reintentar...")
             time.sleep(600)
 
