@@ -1,0 +1,13 @@
+a-coruna
+alicante-alacant
+barcelona
+bilbao
+donostia-san-sebastian
+madrid
+malaga
+palma-de-mallorca
+pamplonairuna
+sevilla
+valencia
+vitoria-gasteiz
+zaragoza
