@@ -46,7 +46,7 @@ class Browser:
         self.browser.execute_script(f"window.scrollBy(0, {scroll_height});")
         time.sleep(random.uniform(1, 3))
 
-    def random_sleep(self, min_time=1, max_time=3):
+    def random_sleep(self, min_time=2, max_time=4):
         """Genera una pausa aleatoria para evitar detección como bot."""
         time.sleep(random.uniform(min_time, max_time))
 
