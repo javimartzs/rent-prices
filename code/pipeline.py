@@ -1,4 +1,3 @@
-from concurrent.futures import ThreadPoolExecuto
 import subprocess 
 import time 
 
@@ -8,7 +7,7 @@ def run_script(script_path):
 
 def run_etl_pipeline():
 
-    subprocess.run(['python', 'code/1_extract/01_rooms.py'], check=True)
+    #subprocess.run(['python', 'code/1_extract/01_rooms.py'], check=True)
     subprocess.run(['python', 'code/1_extract/01_rent.py'], check=True)
 
 
