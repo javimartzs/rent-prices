@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
             # Start Scraping
             home_url = 'https://www.idealista.com/alquiler-viviendas'
-            home = 'rent'
+            home = 'houses'
             scraper = Scraper(browser_obj, barrios, home_url, home)
             scraper.scrape()
 

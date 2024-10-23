@@ -1,7 +1,7 @@
 import pandas as pd 
 import os 
 
-input_path = 'output/rent'
+input_path = 'output/houses'
 files = [os.path.join(input_path, f) for f in os.listdir(input_path) if f.endswith('.csv')]
 
 df = pd.concat([pd.read_csv(file) for file in files], ignore_index = True)
@@ -64,7 +64,7 @@ df = df[[
 
 
 date_suffix = df['date'].astype(str).str.replace('-', '').unique()[0]
-df.to_parquet(f'output/rent/rent_{date_suffix}.parquet', index=False)
+df.to_parquet(f'output/houses/houses_{date_suffix}.parquet', index=False)
 
 for file in files:
     os.remove(file)
