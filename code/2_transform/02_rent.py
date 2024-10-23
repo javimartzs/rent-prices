@@ -64,4 +64,7 @@ df = df[[
 
 
 date_suffix = df['date'].astype(str).str.replace('-', '').unique()[0]
-df.to_parquet(f'/Volumes/javimartzs/rent_{date_suffix}.parquet', index=False)
+df.to_parquet(f'output/rent/rent_{date_suffix}.parquet', index=False)
+
+for file in files:
+    os.remove(file)

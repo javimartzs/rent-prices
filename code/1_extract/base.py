@@ -166,4 +166,17 @@ class Scraper:
                         print(f"No hay más páginas para el barrio {barrio} en la ciudad {city}")
                         break  
 
+class BuyScraper:
+    def __init__(self, browser, barrios):
+        self.browser = browser
+        self.barrios = barrios
 
+    def scrape(self):
+
+        for city, barrios_list in self.barrios.items():
+            data = []
+            filters = ['con-estudios,de-un-dormitorio,de-dos-dormitorios/','con-de-tres-dormitorios,de-cuatro-cinco-habitaciones-o-mas']
+
+            for barrio in barrios_list:
+                for filter in filters:
+                    pass
